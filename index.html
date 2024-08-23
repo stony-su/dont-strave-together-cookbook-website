@@ -18,7 +18,7 @@
         body {
             background: url('images/background.png') no-repeat center center fixed;
             background-size: cover;
-            color: #333; /* Default text color for better readability */
+            color: #333; 
             margin: 0;
             padding: 0;
             position: relative;
@@ -31,11 +31,11 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
-            z-index: -1; /* Make sure overlay is behind the content */
+            z-index: -1;
         }
 
         nav {
-            background-color: #f48fb1; /* pink lighten-3 */
+            background-color: #f48fb1;
         }
 
         .progress {
@@ -43,38 +43,91 @@
         }
 
         .progress .determinate {
-            background-color: #ec407a; /* pink lighten-1 */
+            background-color: #ec407a; 
         }
 
         table {
             width: 100%;
             margin: 20px 0;
             border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.8); /* Light background for table */
-            border-radius: 8px; /* Optional: rounded corners for the table */
+            background: rgba(255, 255, 255, 0.8); 
+            border-radius: 8px; 
         }
 
         th, td {
-            border: 1px solid #f48fb1; /* pink lighten-3 */
+            border: 1px solid #f48fb1; 
             padding: 8px;
             text-align: left;
         }
 
         thead th {
-            background-color: #f8bbd0; /* pink lighten-4 */
-            color: #880e4f; /* pink darken-4 */
+            background-color: #f8bbd0; 
+            color: #880e4f; 
         }
 
         tbody tr:nth-child(even) {
-            background-color: #fce4ec; /* pink lighten-5 */
+            background-color: #fce4ec; 
         }
 
         tbody tr:nth-child(odd) {
-            background-color: #ffffff; /* White for odd rows */
+            background-color: #ffffff; 
         }
 
         .carousel .carousel-item img {
-            max-height: 300px; /* Limit the height of carousel images */
+            max-height: 300px; 
+        }
+        .body2 {
+            background-color: #ffe6e6; /* Light pink background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #d81b60; /* Darker pink for the heading */
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6); /* Transparent white overlay */
+            border-radius: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #f8bbd0; /* Light pink button background */
+            color: #880e4f; /* Darker pink for button text */
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #f48fb1; /* Slightly darker pink on hover */
+        }
+        .btn:disabled {
+            background-color: #fce4ec; /* Very light pink for disabled buttons */
+            cursor: not-allowed;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #d81b60; /* Darker pink for the result text */
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6); /* Transparent white overlay */
+            border-radius: 10px;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #cookBtn {
+            display: block;
+            margin: 20px auto;
+            background-color: #d81b60; /* Darker pink for the cook button */
+            color: white;
         }
     </style>
 </head>
@@ -96,22 +149,22 @@
 
     <!-- Carousel -->
     <div class="carousel" data-total-items="6">
-        <a class="carousel-item" href="#one!" data-ingredients="Tomatoes, Onions, Garlic" data-quantity="2, 1, 3">
+        <a class="carousel-item" href="#one!" data-ingredients="Honey, Stick" data-quantity="1, 3">
             <img src="images/cookbook1.png" alt="Cookbook 1">
         </a>
-        <a class="carousel-item" href="#two!" data-ingredients="Chicken, Potatoes, Carrots" data-quantity="1, 4, 3">
+        <a class="carousel-item" href="#two!" data-ingredients="Asparagus, Ice'" data-quantity="2, 2">
             <img src="images/cookbook2.png" alt="Cookbook 2">
         </a>
-        <a class="carousel-item" href="#three!" data-ingredients="Pasta, Olive Oil, Basil" data-quantity="200g, 50ml, 10g">
+        <a class="carousel-item" href="#three!" data-ingredients="Asparagus, Vegetable, Mushroom" data-quantity="1, 1, 2">
             <img src="images/ck3.png" alt="Cookbook 3">
         </a>
-        <a class="carousel-item" href="#four!" data-ingredients="Beef, Onions, Peppers" data-quantity="500g, 2, 3">
+        <a class="carousel-item" href="#four!" data-ingredients="Meat, Egg" data-quantity="2, 2">
             <img src="images/ck4.png" alt="Cookbook 4">
         </a>
-        <a class="carousel-item" href="#five!" data-ingredients="Rice, Beans, Corn" data-quantity="1 cup, 1 cup, 1 cup">
+        <a class="carousel-item" href="#five!" data-ingredients="Banana, Ice, Stick" data-quantity="1, 1, 2">
             <img src="images/ck5.png" alt="Cookbook 5">
         </a>
-        <a class="carousel-item" href="#six!" data-ingredients="Eggs, Flour, Milk" data-quantity="3, 200g, 250ml">
+        <a class="carousel-item" href="#six!" data-ingredients="Banana, Stick" data-quantity="2, 2">
             <img src="images/ck6.png" alt="Cookbook 6">
         </a>
     </div>
@@ -131,33 +184,62 @@
             </tr>
         </tbody>
     </table>
-
-    <!-- JavaScript at end of body for optimized loading -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var carouselElem = document.querySelector('.carousel');
-            var carouselInstance = M.Carousel.init(carouselElem, {
-                indicators: true,
-                onCycleTo: function(item) {
-                    // Extract data from the current carousel item
-                    var ingredients = item.dataset.ingredients;
-                    var quantity = item.dataset.quantity;
-
-                    // Update the table with the new data
-                    document.getElementById('ingredients').textContent = ingredients;
-                    document.getElementById('quantity').textContent = quantity;
-                }
-            });
-
-            // Set initial item if necessary
-            carouselInstance.set(0);
-        });
-
-        // Make sure the carousel initializes properly
-        $(document).ready(function(){
-            $('.carousel').carousel();
-        });
-    </script>
 </body>
+
+<body2>
+
+    <h1>Select Four Ingredients</h1>
+    <div id="buttons">
+        <button onclick="handleClick('Stick')" class="btn">Stick</button>
+        <button onclick="handleClick('Banana')" class="btn">Banana</button>
+        <button onclick="handleClick('Ice')" class="btn">Ice</button>
+        <button onclick="handleClick('Meat')" class="btn">Meat</button>
+        <button onclick="handleClick('Egg')" class="btn">Egg</button>
+        <button onclick="handleClick('Vegetable')" class="btn">Vegetable</button>
+        <button onclick="handleClick('Asparagus')" class="btn">Asparagus</button>
+        <button onclick="handleClick('Mushroom')" class="btn">Mushroom</button>
+        <button onclick="handleClick('Honey')" class="btn">Honey</button>
+    </div>
+
+    <button id="cookBtn" class="btn" onclick="cookMeal()" disabled>Cook!</button>
+
+    <div id="result"></div>
+</body2>
+
+<footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About This Cookbook</h5>
+          <p class="grey-text text-lighten-4">Explore a curated collection of recipes and tips for surviving and thriving in the world of Don't Starve Together. Use the sections below to find what you need.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Quick Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#recipes">Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="#tips">Survival Tips</a></li>
+            <li><a class="grey-text text-lighten-3" href="#guides">Guides</a></li>
+            <li><a class="grey-text text-lighten-3" href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2024 Don't Starve Together Cookbook
+        <a class="grey-text text-lighten-4 right" href="#!">More Information</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="crackpot.js"></script>
+  <script>
+    function handleClick(ingredient) {
+            selectIngredient(ingredient);
+            M.toast({html: `${ingredient} added!`});
+        }
+  </script>
 </html>
+
+
