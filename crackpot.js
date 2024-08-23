@@ -75,3 +75,30 @@ document.addEventListener('DOMContentLoaded', function() {
 $(document).ready(function(){
     $('.carousel').carousel();
 });
+
+$(document).ready(function() {
+    // Handle the double-click event on carousel images
+    $('.carousel-item').on('dblclick', function(event) {
+        event.preventDefault();
+
+        // Get the title, ingredients, and quantities from the clicked item
+        let title = $(this).find('img').attr('alt');
+        let ingredients = $(this).data('ingredients');
+        let quantities = $(this).data('quantity');
+
+        // Populate the card with the information
+        $('#cardTitle').text(title);
+        $('#cardContent').html(`Ingredients: ${ingredients}<br>Quantity: ${quantities}`);
+        $('#cardLink').attr('href', $(this).attr('href'));
+
+        // Show the overlay and card with fade-in effect
+        $('#overlay').fadeIn();
+        $('#recipeCard').fadeIn();
+    });
+
+    // Handle the close event to hide the card and overlay
+    $('#closeCard, #overlay').on('click', function() {
+        $('#recipeCard').fadeOut();
+        $('#overlay').fadeOut();
+    });
+});

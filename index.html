@@ -16,24 +16,12 @@
     <!-- Custom Styles -->
     <style>
         body {
-            background: url('images/background.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #333; 
             margin: 0;
             padding: 0;
-            position: relative;
+            overflow: hidden; 
+            background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
+            background-size: cover; 
         }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
-            z-index: -1;
-        }
-
         nav {
             background-color: #f48fb1;
         }
@@ -150,23 +138,36 @@
     <!-- Carousel -->
     <div class="carousel" data-total-items="6">
         <a class="carousel-item" href="#one!" data-ingredients="Honey, Stick" data-quantity="1, 3">
-            <img src="images/cookbook1.png" alt="Cookbook 1">
+            <img src="images/cookbook1.png" alt="Amberosia">
         </a>
-        <a class="carousel-item" href="#two!" data-ingredients="Asparagus, Ice'" data-quantity="2, 2">
-            <img src="images/cookbook2.png" alt="Cookbook 2">
+        <a class="carousel-item" href="#two!" data-ingredients="Asparagus, Ice" data-quantity="2, 2">
+            <img src="images/cookbook2.png" alt="Asparagus Soup">
         </a>
         <a class="carousel-item" href="#three!" data-ingredients="Asparagus, Vegetable, Mushroom" data-quantity="1, 1, 2">
-            <img src="images/ck3.png" alt="Cookbook 3">
+            <img src="images/ck3.png" alt="Asparagazpacho">
         </a>
         <a class="carousel-item" href="#four!" data-ingredients="Meat, Egg" data-quantity="2, 2">
-            <img src="images/ck4.png" alt="Cookbook 4">
+            <img src="images/ck4.png" alt="Bacon and Eggs">
         </a>
         <a class="carousel-item" href="#five!" data-ingredients="Banana, Ice, Stick" data-quantity="1, 1, 2">
-            <img src="images/ck5.png" alt="Cookbook 5">
+            <img src="images/ck5.png" alt="Banana Pop">
         </a>
         <a class="carousel-item" href="#six!" data-ingredients="Banana, Stick" data-quantity="2, 2">
-            <img src="images/ck6.png" alt="Cookbook 6">
+            <img src="images/ck6.png" alt="Banana Shake">
         </a>
+    </div>
+
+    <div id="overlay"></div>
+
+    <!-- Card that will be displayed on double-click -->
+    <div id="recipeCard" class="card-popup">
+        <div class="card-content white-text">
+            <span id="cardTitle" class="card-title">Card Title</span>
+            <p id="cardContent">Ingredients and quantities will appear here.</p>
+        </div>
+        <div class="card-action">
+            <a href="#" id="closeCard">Close</a>
+        </div>
     </div>
 
     <!-- Table -->
@@ -233,6 +234,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="crackpot.js"></script>
   <script>
     function handleClick(ingredient) {
