@@ -6,5 +6,6 @@ How to use:
 2. Unzip
 3. Open index.html
 
+Alternatively, open the link: https://stony-su.github.io/dont-strave-together-cookbook-website/
 
-https://hackclub.slack.com/files/U05J4G2GC7J/F07JC090W4C/screenshare_-_2024-08-23_11_40_06_am.webm
+https://hackclub.slack.com/files/U05J4G2GC7J/F07JC090W4C/screenshare_-_2024-08-23_11_40_06_am.webm](https://drive.google.com/file/d/1LY3YaGKiojzjp6IDyebsmJkefBRFkk6c/view?usp=sharing)
